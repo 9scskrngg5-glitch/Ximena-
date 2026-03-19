@@ -605,57 +605,8 @@ transition: opacity 1.2s ease, transform 1.2s ease;
 
 </head>
 <body>
-<!-- MUSIC PLAYER -->
-<div id="yt-music"></div>
-<script src="https://www.youtube.com/iframe_api"></script>
-<script>
-  var player;
-  var playing = false;
 
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('yt-music', {
-      height: '0',
-      width: '0',
-      videoId: '0TDrpSgDjas',
-      playerVars: { loop: 1, playlist: '0TDrpSgDjas' }
-    });
-  }
-
-  function toggleMusic() {
-    if (!player) return;
-    var btn = document.getElementById('music-btn');
-    if (!playing) {
-      player.playVideo();
-      btn.textContent = '🎵';
-      btn.style.opacity = '1';
-      playing = true;
-    } else {
-      player.pauseVideo();
-      btn.textContent = '🔇';
-      btn.style.opacity = '0.5';
-      playing = false;
-    }
-  }
-</script>
-
-<!-- Bouton flottant -->
-<button id="music-btn" onclick="toggleMusic()" style="
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  background: rgba(255,255,255,0.15);
-  border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  font-size: 22px;
-  cursor: pointer;
-  backdrop-filter: blur(8px);
-  opacity: 0.5;
-  z-index: 9999;
-">🔇</button>
-
-<!-- ══ INTRO ══ -->
+<!-- ══INTRO ══ -->
 
 <div id="intro">
   <p class="i-tag">24 septembre 2025 &nbsp;&nbsp; 24 mars 2026</p>
