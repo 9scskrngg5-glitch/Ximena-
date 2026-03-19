@@ -605,6 +605,41 @@ transition: opacity 1.2s ease, transform 1.2s ease;
 
 </head>
 <body>
+  
+<!-- MUSIC PLAYER -->
+<div id="yt-music"></div>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var player;
+  var musicStarted = false;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('yt-music', {
+      height: '0',
+      width: '0',
+      videoId: '0TDrpSgDjas',
+      playerVars: {
+        autoplay: 0,
+        loop: 1,
+        playlist: '0TDrpSgDjas'
+      },
+      events: {
+        onReady: function(e) {
+          e.target.setVolume(60);
+        }
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.i-btn').addEventListener('click', function() {
+      if (player && !musicStarted) {
+        player.playVideo();
+        musicStarted = true;
+      }
+    });
+  });
+</script>
 
 <div id="particles"></div>
 
